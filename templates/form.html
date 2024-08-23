@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Form!</title>
+    </head>
+    <body>
+        <h1>Our form is here!</h1>
+        <form method="POST" action="{{ url_for('hello') }}">
+            {{ form.csrf_token }}
+            {{ form.username.label }}
+            {{ form.username }}
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

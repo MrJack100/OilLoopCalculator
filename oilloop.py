@@ -24,9 +24,6 @@ def oilLoop(fuel, plastic, rubber):
 	percentage = (totalResin / 2) / (plasticRubberFuel * 3)
 	recycledRubberTotal = plasticRubberFuel * (1 - percentage)
 	recycledPlasticTotal = plasticRubberFuel * (1 + percentage)
-	inputRubber = recycledRubberTotal - rubber
-	inputPlastic = recycledPlasticTotal - plastic
-	print(inputRubber, inputPlastic)
 	recycledPlasticRefineries = recycledPlasticTotal / 60
 	recycledRubberRefineries = recycledRubberTotal / 60
 	return(totalOil, recycledPlasticRefineries, recycledRubberRefineries)

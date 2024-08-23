@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Calculator!</title>
+    </head>
+    <body>
+        <h1>Enter fuel, plastic and rubber to calculate.</h1>
+        <form method="POST" action="{{ url_for('hello') }}">
+            {{ form.csrf_token }}
+            {{ form.fuel.label }}
+            {{ form.fuel }}
+            {{ form.plastic.label }}
+            {{ form.plastic }}
+            {{ form.rubber.label }}
+            {{ form.rubber }}
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
