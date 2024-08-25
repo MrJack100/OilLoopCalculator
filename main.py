@@ -8,14 +8,13 @@ from wtforms import StringField
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "Thisisasecret!"
 
-class LoginForm(FlaskForm):
-    fuel = StringField("fuel")
-    plastic = StringField("plastic")
-    rubber = StringField("rubber")
-
-@app.route("/hello", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def hello():
-    form = LoginForm()
+    class InputForm(FlaskForm):
+        fuel = StringField("fuel")
+        plastic = StringField("plastic")
+        rubber = StringField("rubber")
+    form = InputForm()
     if form.validate_on_submit():
         print(form.fuel.data, form.plastic.data, form.rubber.data)
         totalOil, plasticRefineries, rubberRefineries = oilLoop(300, 300, 300)
