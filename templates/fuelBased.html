@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Calculator!</title>
+    </head>
+    <body style="margin:0px;">
+        <h1>Oil Loop Calculator</h1>
+        <a href="{{ url_for('horBased') }}">HOR Based</a>
+        <section name="calculator">
+            <h1>Enter fuel, plastic and rubber to calculate.</h1>
+            {% if form %}
+                <form method="POST" action="{{ url_for('fuelBased') }}">
+                    {{ form.csrf_token }}
+                    {{ form.fuel.label }}
+                    {{ form.fuel }}
+                    {{ form.plastic.label }}
+                    {{ form.plastic }}
+                    {{ form.rubber.label }}
+                    {{ form.rubber }}
+                    <input type="submit" value="Submit">
+                </form>
+            {% endif %}
+            {% if response %}
+                <h1>Results</h1>
+                <p>Total Oil: {{ totalOil }}</p>
+                <p>Refineries making Recycled Plastic: {{ plasticRefineries }}</p>
+                <p>Refineries making Recycled Rubber: {{ rubberRefineries }}</p>
+            {% endif %}
+        </section>
+        {{ index | safe }}
+    </body>
+</html>

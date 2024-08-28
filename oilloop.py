@@ -28,6 +28,6 @@ def oilLoopFuelBased(fuel, plastic, rubber):
 	recycledRubberRefineries = recycledRubberTotal / 60
 	return(totalOil, recycledPlasticRefineries, recycledRubberRefineries)
 
-def oilLoopHORBased(hor, plastic, rubber):
+def oilLoopHorBased(hor, plastic, rubber):
 	totalOil, recycledPlasticRefineries, recycledRubberRefineries = oilLoopFuelBased(hor / 2, plastic, rubber)
 	return(totalOil, recycledPlasticRefineries, recycledRubberRefineries)
