@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = "Thisisasecret!"
 
 @app.route("/", methods=["GET", "POST"])
-def hello():
+def head():
     class InputForm(FlaskForm):
         fuel = StringField("fuel")
         plastic = StringField("plastic")
@@ -18,8 +18,8 @@ def hello():
     if form.validate_on_submit():
         print(form.fuel.data, form.plastic.data, form.rubber.data)
         totalOil, plasticRefineries, rubberRefineries = oilLoop(300, 300, 300)
-        return render_template("calculated.html", totalOil=totalOil, plasticRefineries=plasticRefineries, rubberRefineries=rubberRefineries)
-    return render_template("landing.html", form=form)
+        return render_template("inputs.html", totalOil=totalOil, plasticRefineries=plasticRefineries, rubberRefineries=rubberRefineries, response=True)
+    return render_template("inputs.html", form=form, response=False)
 
 if __name__ == "__main__":
     app.run(debug=True)
