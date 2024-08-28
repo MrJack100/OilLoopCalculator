@@ -17,7 +17,7 @@ def head():
     form = InputForm()
     if form.validate_on_submit():
         print(form.fuel.data, form.plastic.data, form.rubber.data)
-        totalOil, plasticRefineries, rubberRefineries = oilLoop(300, 300, 300)
+        totalOil, plasticRefineries, rubberRefineries = oilLoopFuelBased(300, 300, 300)
         return render_template("inputs.html", totalOil=totalOil, plasticRefineries=plasticRefineries, rubberRefineries=rubberRefineries, response=True)
     return render_template("inputs.html", form=form, response=False)
 

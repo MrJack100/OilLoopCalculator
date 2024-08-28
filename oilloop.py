@@ -15,7 +15,7 @@ def maxPotential(oil, ratio=False) -> tuple:
 def requiredOil(fuel, plastic, rubber):
 	return((fuel + plastic + rubber) / 3)
 
-def oilLoop(fuel, plastic, rubber):
+def oilLoopFuelBased(fuel, plastic, rubber):
 	totalOil = requiredOil(fuel, plastic, rubber)
 	byproductResin = fuel / 4
 	plasticRubberOil = totalOil - (fuel / 8 * 3)
@@ -26,4 +26,8 @@ def oilLoop(fuel, plastic, rubber):
 	recycledPlasticTotal = plasticRubberFuel * (1 + percentage)
 	recycledPlasticRefineries = recycledPlasticTotal / 60
 	recycledRubberRefineries = recycledRubberTotal / 60
+	return(totalOil, recycledPlasticRefineries, recycledRubberRefineries)
+
+def oilLoopHORBased(hor, plastic, rubber):
+	totalOil, recycledPlasticRefineries, recycledRubberRefineries = oilLoopFuelBased(hor / 2, plastic, rubber)
 	return(totalOil, recycledPlasticRefineries, recycledRubberRefineries)
