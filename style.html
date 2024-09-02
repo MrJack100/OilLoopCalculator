@@ -1,12 +1,24 @@
 <style>
     @import url('https://fonts.googleapis.com/css?family=Noto%20Sans%20Nabataean:700|Noto%20Sans%20Nabataean:400');
 
-    :root {
-        --text: #081610;
-        --background: #f4fbf7;
-        --primary: #3cc88e;
-        --secondary: #83ecc0;
-        --accent: #4ae8a6;
+    @media (prefers-color-scheme: light) {
+        :root {
+            --text: #0d0b14;
+            --background: #fcfbfe;
+            --primary: #7a67ad;
+            --secondary: #c2a9d1;
+            --accent: #ae81bb;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --text: #edebf4;
+            --background: #020104;
+            --primary: #655298;
+            --secondary: #482e56;
+            --accent: #71447e;
+        }
     }
 
 
@@ -113,6 +125,7 @@
         display: flex;
         flex-direction: column;
         text-align: center;
+        height: 100vh;
     }
 
     form {
@@ -126,7 +139,6 @@
         border-radius: 10px;
         margin: 10px;
         border: 2px solid var(--text);
-
     }
 
     input[type="submit"] {
@@ -147,5 +159,114 @@
     input[type="submit"]:hover {
         background-color: var(--primary);
         border: 2px solid var(--primary);
+    }
+
+    #calculator #elipsis::before {
+        animation-name: elipsisTextChange;
+        content: "";
+        animation-duration: 2000ms;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes elipsisTextChange {
+        25% {content: "";}
+        50% {content: ".";}
+        75% {content: "..";}
+        100% {content: "...";}
+    }
+
+    #modal {
+        z-index: 1;
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.4);
+        width: 100%;
+        height: 100%;
+        right: 0;
+        bottom: 0;
+        animation-duration: 500ms;
+        animation-name: modalBackdrop;
+    }
+
+    @keyframes modalBackdrop {
+        from {opacity: 0%;}
+        to {opacity: 100%;}
+    }
+
+    #modalContent {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--background);
+        width: 80%;
+        border-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20vh;
+        padding: 20px;
+        animation-duration: 500ms;
+        animation-name: modalContent;
+    }
+
+    @keyframes modalContent {
+        from {opacity: 0%;}
+        to {opacity: 100%;}
+    }
+
+    #modalContent h3 {
+        margin: 0px;
+    }
+
+    #modalContent a {
+        display: inline-block;
+        color: var(--text);
+        background-color: var(--secondary);
+        padding: 10px;
+        border-radius: 10px;
+        margin: 10px;
+        border: 2px solid var(--secondary);
+        font-family: 'Noto Sans Nabataean';
+        font-weight: 400;
+        color: var(--text);
+        font-size: 100%;
+        transition-duration: 0.5s;
+        transition-property: background-color, border;
+        text-decoration: none;
+    }
+
+    #modalContent a:hover {
+        background-color: var(--primary);
+        border: 2px solid var(--primary);
+    }
+
+    #information {
+        padding-bottom: 20px;
+    }
+
+    #stupidLineBreak {
+        display: none;
+    }
+
+    @media only screen and (max-width: 820px) {
+        #header div {
+            position: fixed;
+            z-index: 1;
+            bottom: 0;
+            left: 0;
+            background-color: var(--background);
+            width: 100%;
+            justify-content: space-between;
+            box-shadow: 0px 20px 25px 0px black;
+        }
+
+        #header {
+            display: block;
+        }
+
+        #header h2 {
+            text-align: center;
+        }
+
+        #stupidLineBreak {
+            display: block;
+        }
     }
 </style>

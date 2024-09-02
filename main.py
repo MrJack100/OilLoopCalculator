@@ -34,6 +34,7 @@ def fuelBased():
         print(form.fuel.data, form.plastic.data, form.rubber.data)
         totalOil, plasticRefineries, rubberRefineries = oilLoopFuelBased(300, 300, 300)
         return render_template("fuelBased.html", 
+                               form=form, 
                                totalOil=totalOil, 
                                plasticRefineries=plasticRefineries, 
                                rubberRefineries=rubberRefineries, 
@@ -58,6 +59,7 @@ def horBased():
         print(form.hor.data, form.plastic.data, form.rubber.data)
         totalOil, plasticRefineries, rubberRefineries = oilLoopHorBased(300, 300, 300)
         return render_template("horBased.html", 
+                               form=form, 
                                totalOil=totalOil, 
                                plasticRefineries=plasticRefineries, 
                                rubberRefineries=rubberRefineries, 

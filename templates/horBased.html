@@ -12,21 +12,25 @@
             </div>
         </div>
         <section id="calculator">
-            <p>Enter <b>heavy oil residue</b>, plastic and rubber to calculate.</p>
-            {% if form %}
-                <form method="POST" action="{{ url_for('horBased') }}">
-                    {{ form.csrf_token }}
-                    {{ form.hor }}
-                    {{ form.plastic }}
-                    {{ form.rubber }}
-                    <input type="submit" value="Submit">
-                </form>
-            {% endif %}
+            <h3>Enter <b>heavy oil residue</b>, plastic and rubber to calculate.</h3>
+            <form method="POST" action="{{ url_for('horBased') }}">
+                {{ form.csrf_token }}
+                {{ form.hor }}
+                {{ form.plastic }}
+                {{ form.rubber }}
+                <input type="submit" value="Submit">
+            </form>
+            <p>Scroll down for more information<span id="elipsis"></span></p>
             {% if response %}
-                <h3>Results</h3>
-                <p>Total Oil: {{ totalOil }}</p>
-                <p>Refineries making Recycled Plastic: {{ plasticRefineries }}</p>
-                <p>Refineries making Recycled Rubber: {{ rubberRefineries }}</p>
+                <div id="modal">
+                    <div id="modalContent">
+                        <h3>Results</h3>
+                        <p>Total Oil: {{ totalOil }}</p>
+                        <p>Refineries making Recycled Plastic: {{ plasticRefineries }}</p>
+                        <p>Refineries making Recycled Rubber: {{ rubberRefineries }}</p>
+                        <a href="{{ url_for('horBased') }}">Back</a>
+                    </div>
+                </div>
             {% endif %}
         </section>
         {{ index | safe }}
