@@ -1,12 +1,18 @@
 <html>
     <head>
         <title>Calculator!</title>
+        {{ style | safe }}
     </head>
-    <body style="margin:0px;">
-        <h1>Oil Loop Calculator</h1>
-        <a href="{{ url_for('fuelBased') }}">Fuel Based</a>
-        <section name="calculator">
-            <h1>Enter heavy oil residue, plastic and rubber to calculate.</h1>
+    <body>
+        <div id="header">
+            <h2>Oil Loop Calculator</h2>
+            <div>
+                <a href="{{ url_for('fuelBased') }}">Fuel Based</a>
+                <p>HOR Based</p>
+            </div>
+        </div>
+        <section id="calculator">
+            <p>Enter <b>heavy oil residue</b>, plastic and rubber to calculate.</p>
             {% if form %}
                 <form method="POST" action="{{ url_for('horBased') }}">
                     {{ form.csrf_token }}
@@ -20,7 +26,7 @@
                 </form>
             {% endif %}
             {% if response %}
-                <h1>Results</h1>
+                <h3>Results</h3>
                 <p>Total Oil: {{ totalOil }}</p>
                 <p>Refineries making Recycled Plastic: {{ plasticRefineries }}</p>
                 <p>Refineries making Recycled Rubber: {{ rubberRefineries }}</p>
