@@ -1,0 +1,156 @@
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Noto%20Sans%20Nabataean:700|Noto%20Sans%20Nabataean:400');
+
+    :root {
+        --text: #081610;
+        --background: #f4fbf7;
+        --primary: #3cc88e;
+        --secondary: #83ecc0;
+        --accent: #4ae8a6;
+    }
+
+
+    body {
+        font-family: 'Noto Sans Nabataean';
+        font-weight: 400;
+        color: var(--text);
+        background-color: var(--background);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-family: 'Noto Sans Nabataean';
+        font-weight: 700;
+    }
+
+    html {
+        font-size: 100%;
+    }
+
+    /* 16px */
+
+    h1 {
+        font-size: 4.210rem;
+        /* 67.36px */
+    }
+
+    h2 {
+        font-size: 3.158rem;
+        /* 50.56px */
+    }
+
+    h3 {
+        font-size: 2.369rem;
+        /* 37.92px */
+    }
+
+    h4 {
+        font-size: 1.777rem;
+        /* 28.48px */
+    }
+
+    h5 {
+        font-size: 1.333rem;
+        /* 21.28px */
+    }
+
+    small {
+        font-size: 0.750rem;
+        /* 12px */
+    }
+
+    #header {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        justify-self: center;
+        justify-content: space-between;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+    #header div {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #header a {
+        border: 5px solid var(--secondary);
+        margin: 30px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: var(--background);
+        text-decoration: none;
+        color: var(--text);
+        transition-duration: 0.5s;
+        transition-property: background-color, border;
+    }
+
+    #header a:hover {
+        border: 5px solid var(--primary);
+    }
+
+    #header p {
+        border: 5px solid var(--secondary);
+        margin: 30px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: var(--secondary);
+        transition-duration: 0.5s;
+        transition-property: background-color, border;
+    }
+
+    #header p:hover {
+        background-color: var(--primary);
+        border: 5px solid var(--primary);
+    }
+
+    #calculator {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        margin: 30px;
+    }
+
+    label {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    input[type="text"] {
+        padding: 10px;
+        border-radius: 10px;
+        margin: 10px;
+        border: 2px solid var(--text);
+
+    }
+
+    input[type="submit"] {
+        color: var(--text);
+        background-color: var(--secondary);
+        padding: 10px;
+        border-radius: 10px;
+        margin: 10px;
+        border: 2px solid var(--secondary);
+        font-family: 'Noto Sans Nabataean';
+        font-weight: 400;
+        color: var(--text);
+        font-size: 100%;
+        transition-duration: 0.5s;
+        transition-property: background-color, border;
+    }
+
+    input[type="submit"]:hover {
+        background-color: var(--primary);
+        border: 2px solid var(--primary);
+    }
+</style>
