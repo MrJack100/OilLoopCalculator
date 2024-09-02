@@ -16,11 +16,8 @@
             {% if form %}
                 <form method="POST" action="{{ url_for('horBased') }}">
                     {{ form.csrf_token }}
-                    {{ form.hor.label }}
                     {{ form.hor }}
-                    {{ form.plastic.label }}
                     {{ form.plastic }}
-                    {{ form.rubber.label }}
                     {{ form.rubber }}
                     <input type="submit" value="Submit">
                 </form>

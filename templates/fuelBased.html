@@ -16,11 +16,8 @@
             {% if form %}
                 <form method="POST" action="{{ url_for('fuelBased') }}">
                     {{ form.csrf_token }}
-                    {{ form.fuel.label }}
                     {{ form.fuel }}
-                    {{ form.plastic.label }}
                     {{ form.plastic }}
-                    {{ form.rubber.label }}
                     {{ form.rubber }}
                     <input type="submit" value="Submit">
                 </form>
