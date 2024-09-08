@@ -3,7 +3,7 @@ from oilloop import oilLoopHorBased, oilLoopFuelBased
 
 from flask import Flask, render_template, redirect
 from flask_wtf import FlaskForm
-from wtforms import FloatField
+from wtforms import StringField
 from wtforms.validators import InputRequired
 
 app = Flask(__name__)
@@ -11,10 +11,12 @@ app.config["SECRET_KEY"] = "Thisisasecret!"
 
 def isAnInt(string):
     try:
-        result = int(string)
+        string = str(string)
+        string = string.replace(",", ".")
+        result = float(string)
         return(result)
     except:
-        return(False)
+        return("StringError")
 
 def indexFiles():
     fileList = []
@@ -34,16 +36,16 @@ def head():
 def fuelBased():
     index, style = indexFiles()
     class InputForm(FlaskForm):
-        fuel = FloatField("Fuel", validators=[InputRequired()], render_kw={"placeholder": "Fuel"})
-        plastic = FloatField("Plastic", validators=[InputRequired()], render_kw={"placeholder": "Plastic"})
-        rubber = FloatField("Rubber", validators=[InputRequired()], render_kw={"placeholder": "Rubber"})
+        fuel = StringField("Fuel", validators=[InputRequired()], render_kw={"placeholder": "Fuel"})
+        plastic = StringField("Plastic", validators=[InputRequired()], render_kw={"placeholder": "Plastic"})
+        rubber = StringField("Rubber", validators=[InputRequired()], render_kw={"placeholder": "Rubber"})        
     form = InputForm()
     if form.validate_on_submit():
         print(form.fuel.data, form.plastic.data, form.rubber.data)
         fuel = isAnInt(form.fuel.data)
         plastic = isAnInt(form.plastic.data)
         rubber = isAnInt(form.rubber.data)
-        if 0 and False in [fuel, plastic, rubber]:
+        if "StringError" in [fuel, plastic, rubber]:
             # Need an escape protocol
             print("Invalid data!")
         else:
@@ -66,16 +68,16 @@ def fuelBased():
 def horBased():
     index, style = indexFiles()
     class InputForm(FlaskForm):
-        hor = FloatField("HOR", validators=[InputRequired()], render_kw={"placeholder": "HOR"})
-        plastic = FloatField("Plastic", validators=[InputRequired()], render_kw={"placeholder": "Plastic"})
-        rubber = FloatField("Rubber", validators=[InputRequired()], render_kw={"placeholder": "Rubber"})
+        hor = StringField("HOR", validators=[InputRequired()], render_kw={"placeholder": "HOR"})
+        plastic = StringField("Plastic", validators=[InputRequired()], render_kw={"placeholder": "Plastic"})
+        rubber = StringField("Rubber", validators=[InputRequired()], render_kw={"placeholder": "Rubber"})
     form = InputForm()
     if form.validate_on_submit():
         print(form.hor.data, form.plastic.data, form.rubber.data)
         hor = isAnInt(form.hor.data)
         plastic = isAnInt(form.plastic.data)
         rubber = isAnInt(form.rubber.data)
-        if 0 and False in [hor, plastic, rubber]:
+        if "StringError" in [hor, plastic, rubber]:
             # Need an escape protocol
             print("Invalid data!")
         else:
