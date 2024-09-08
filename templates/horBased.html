@@ -15,9 +15,9 @@
             <p>Enter <b>heavy oil residue</b>, plastic and rubber to calculate.</p>
             <form method="POST" action="{{ url_for('horBased') }}">
                 {{ form.csrf_token }}
-                {{ form.hor(pattern="^([0-9]|\.|\,)*$", title="Integers and floats only") }}
-                {{ form.plastic(pattern="^([0-9]|\.|\,)*$", title="Integers and floats only") }}
-                {{ form.rubber(pattern="^([0-9]|\.|\,)*$", title="Integers and floats only") }}
+                {{ form.hor(pattern="^([0-9]|\.|,)*$", title="Integers and floats only") }}
+                {{ form.plastic(pattern="^([0-9]|\.|,)*$", title="Integers and floats only") }}
+                {{ form.rubber(pattern="^([0-9]|\.|,)*$", title="Integers and floats only") }}
                 <input type="submit" value="Submit">
             </form>
             <p>Scroll down for more information<span id="elipsis"></span></p>
