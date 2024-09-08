@@ -12,7 +12,7 @@
             </div>
         </div>
         <section id="calculator">
-            <h3>Enter fuel, plastic and rubber to calculate.</h3>
+            <p>Enter fuel, plastic and rubber to calculate.</p>
             <form method="POST" action="{{ url_for('fuelBased') }}">
                 {{ form.csrf_token }}
                 {{ form.fuel }}

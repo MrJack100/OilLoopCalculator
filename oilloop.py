@@ -16,7 +16,7 @@ def requiredOil(fuel, plastic, rubber):
 	return((fuel + plastic + rubber) / 3)
 
 def oilLoopFuelBased(fuel, plastic, rubber):
-	totalOil = requiredOil(fuel, plastic, rubber)
+	totalOil = (fuel + plastic + rubber) / 3
 	byproductResin = fuel / 4
 	plasticRubberOil = totalOil - (fuel / 8 * 3)
 	totalResin = (plasticRubberOil / 3 * 2) + byproductResin

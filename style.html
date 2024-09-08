@@ -85,6 +85,10 @@
         flex-wrap: wrap;
     }
 
+    #header h2 {
+        margin: 30px;
+    }
+
     #header div {
         display: flex;
         flex-direction: row;
@@ -137,7 +141,8 @@
     input[type="text"] {
         padding: 13.5px;
         border-radius: 10px;
-        margin: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
         border: 2px solid var(--text);
     }
 
@@ -146,7 +151,8 @@
         background-color: var(--secondary);
         padding: 10px;
         border-radius: 10px;
-        margin: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
         border: 2px solid var(--secondary);
         font-family: 'Noto Sans Nabataean';
         font-weight: 400;
@@ -239,13 +245,14 @@
 
     #information {
         padding-bottom: 20px;
+        margin: 30px;
     }
 
     #stupidLineBreak {
         display: none;
     }
 
-    @media only screen and (max-width: 820px) {
+    @media only screen and (max-width: 895px) {
         #header div {
             position: fixed;
             z-index: 1;
@@ -270,3 +277,4 @@
         }
     }
 </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
