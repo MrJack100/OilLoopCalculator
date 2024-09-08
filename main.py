@@ -3,7 +3,8 @@ from oilloop import oilLoopHorBased, oilLoopFuelBased
 
 from flask import Flask, render_template, redirect
 from flask_wtf import FlaskForm
-from wtforms import IntegerField
+from wtforms import FloatField
+from wtforms.validators import InputRequired
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "Thisisasecret!"
@@ -33,16 +34,16 @@ def head():
 def fuelBased():
     index, style = indexFiles()
     class InputForm(FlaskForm):
-        fuel = IntegerField("Fuel", render_kw={"placeholder": "Fuel"})
-        plastic = IntegerField("Plastic", render_kw={"placeholder": "Plastic"})
-        rubber = IntegerField("Rubber", render_kw={"placeholder": "Rubber"})
+        fuel = FloatField("Fuel", validators=[InputRequired()], render_kw={"placeholder": "Fuel"})
+        plastic = FloatField("Plastic", validators=[InputRequired()], render_kw={"placeholder": "Plastic"})
+        rubber = FloatField("Rubber", validators=[InputRequired()], render_kw={"placeholder": "Rubber"})
     form = InputForm()
     if form.validate_on_submit():
         print(form.fuel.data, form.plastic.data, form.rubber.data)
         fuel = isAnInt(form.fuel.data)
         plastic = isAnInt(form.plastic.data)
         rubber = isAnInt(form.rubber.data)
-        if False in [fuel, plastic, rubber]:
+        if 0 and False in [fuel, plastic, rubber]:
             # Need an escape protocol
             print("Invalid data!")
         else:
@@ -65,16 +66,16 @@ def fuelBased():
 def horBased():
     index, style = indexFiles()
     class InputForm(FlaskForm):
-        hor = IntegerField("HOR", render_kw={"placeholder": "HOR"})
-        plastic = IntegerField("Plastic", render_kw={"placeholder": "Plastic"})
-        rubber = IntegerField("Rubber", render_kw={"placeholder": "Rubber"})
+        hor = FloatField("HOR", validators=[InputRequired()], render_kw={"placeholder": "HOR"})
+        plastic = FloatField("Plastic", validators=[InputRequired()], render_kw={"placeholder": "Plastic"})
+        rubber = FloatField("Rubber", validators=[InputRequired()], render_kw={"placeholder": "Rubber"})
     form = InputForm()
     if form.validate_on_submit():
         print(form.hor.data, form.plastic.data, form.rubber.data)
         hor = isAnInt(form.hor.data)
         plastic = isAnInt(form.plastic.data)
         rubber = isAnInt(form.rubber.data)
-        if False in [hor, plastic, rubber]:
+        if 0 and False in [hor, plastic, rubber]:
             # Need an escape protocol
             print("Invalid data!")
         else:
